@@ -7,9 +7,10 @@ import os
 
 class Model:
     def __init__(self):
-        self.root = "????"
-        self.password = "?????"
-        self.CONNECTION_STRING = f"mongodb+srv://{self.root}:{self.password}@cluster0.8isoiw5.mongodb.net/"
+        root = os.getenv('root')
+        password = os.getenv('password')
+        cluster = os.getenv('cluster')
+        self.CONNECTION_STRING = f"mongodb+srv://{root}:{password}{cluster}"
 
         self.client = MongoClient(self.CONNECTION_STRING)
         self.bd = self.client["Dug"]
