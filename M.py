@@ -13,8 +13,8 @@ class Model:
         self.CONNECTION_STRING = f"mongodb+srv://{root}:{password}{cluster}"
 
         self.client = MongoClient(self.CONNECTION_STRING)
-        self.bd = self.client["Dug"]
-        self.Products = self.bd["Products"]
+        self.bd = self.client["db"]
+        self.Products = self.bd["products"]
 
         print(self.client['user_shopping_list'])
 
